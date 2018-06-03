@@ -5,6 +5,8 @@ import os
 
 import json
 
+import base64
+
 from pi_object_detection import PiObjectDetector
 
 app = Flask(__name__)

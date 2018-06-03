@@ -9,6 +9,8 @@ import math
 
 import png
 
+import base64
+
 app = Flask(__name__)
 
 

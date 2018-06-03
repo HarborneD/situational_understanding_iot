@@ -3,6 +3,8 @@ from flask import Flask, Response ,send_file , send_from_directory
 import os
 
 import cv2
+import base64
+
 
 app = Flask(__name__)
 
