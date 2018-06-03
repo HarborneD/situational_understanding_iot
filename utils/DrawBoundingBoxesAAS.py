@@ -10,6 +10,9 @@ import math
 import png
 
 import base64
+from PIL import Image
+from StringIO import StringIO
+
 
 app = Flask(__name__)
 

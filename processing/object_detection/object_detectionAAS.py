@@ -6,6 +6,9 @@ import os
 import json
 
 import base64
+from PIL import Image
+from StringIO import StringIO
+
 
 from pi_object_detection import PiObjectDetector
 
