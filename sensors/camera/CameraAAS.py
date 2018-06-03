@@ -2,8 +2,24 @@ from WebCamera import WebCam
 from flask import Flask, Response ,send_file , send_from_directory
 import os
 
+import cv2
 
 app = Flask(__name__)
+
+
+def readb64(base64_string):
+    sbuf = StringIO()
+    sbuf.write(base64.b64decode(base64_string))
+    pimg = Image.open(sbuf)
+    return cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
+
+def encIMG64(image,convert_colour = False):
+    if(convert_colour):
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+    
+    retval, img_buf = cv2.imencode('.jpg', image)
+    
+    return base64.b64encode(img_buf)
 
 
 @app.route("/camera_feed/<string:camera_id>", methods=['GET'])
@@ -29,6 +45,17 @@ def CameraUpdateStill(camera_id):
 def CameraStillFile(camera_id):
 	path = os.path.join("camera_stills","still_"+camera_id+".jpg")
 	return send_file(path, mimetype='image/jpg')
+
+
+@app.route("/camera_still/as_64string/<string:camera_id>", methods=['GET'])
+def CameraStillFile(camera_id):
+	path = os.path.join("camera_stills","still_"+camera_id+".jpg")
+	image = cv2.imread(path)
+
+	encoded_image = encIMG64(image,True)
+
+	return "{'image':"+encoded_image+"}"
+
 
 @app.route('/camera_stills/<path:path>')
 def CameraStill(path):
