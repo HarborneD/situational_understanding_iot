@@ -4,6 +4,7 @@ import os
 
 import cv2
 import base64
+import json
 
 
 app = Flask(__name__)
@@ -55,8 +56,8 @@ def CameraStillAsString(camera_id):
 	image = cv2.imread(path)
 
 	encoded_image = encIMG64(image,True)
-
-	return "{'image':"+encoded_image+"}"
+	response_dict = {"camera":encoded_image}
+	return json.dumps(response_dict)
 
 
 @app.route('/camera_stills/<path:path>')
