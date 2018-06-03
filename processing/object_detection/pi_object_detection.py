@@ -96,7 +96,7 @@ class PiObjectDetector(object):
 
 	def DetectionsToDicts(self,detections):
 		detection_dicts_list = []
-		if(len(detections = 0)):
+		if(len(detections) == 0):
 			return detection_dicts_list
 		detection_list = detections[:,0,0,:]
 		
