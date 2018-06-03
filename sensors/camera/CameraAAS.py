@@ -48,7 +48,7 @@ def CameraStillFile(camera_id):
 
 
 @app.route("/camera_still/as_64string/<string:camera_id>", methods=['GET'])
-def CameraStillFile(camera_id):
+def CameraStillAsString(camera_id):
 	path = os.path.join("camera_stills","still_"+camera_id+".jpg")
 	image = cv2.imread(path)
 
