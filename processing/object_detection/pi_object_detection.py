@@ -4,9 +4,6 @@
 import numpy as np
 import cv2
 
-import argparse
-import imutils
-import time
 
 class PiObjectDetector(object):
 	"""docstring for PiObjectDetector"""
