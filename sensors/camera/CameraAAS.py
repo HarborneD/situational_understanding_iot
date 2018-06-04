@@ -59,7 +59,7 @@ def CameraStillAsString(camera_id):
 	path = os.path.join("camera_stills","still_"+camera_id+".jpg")
 	image = cv2.imread(path)
 
-	encoded_image = encIMG64(image,True)
+	encoded_image = encIMG64(image)
 	response_dict = {"image":encoded_image}
 	return json.dumps(response_dict)
 
