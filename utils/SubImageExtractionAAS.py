@@ -80,7 +80,7 @@ def EncodeSubImageDict(sub_image_dict):
         encoded_sub_image_dict[label] = []
 
         for image in sub_image_dict[label]:
-            encoded_sub_image_dict[label].append(encIMG64(image))
+            encoded_sub_image_dict[label].append(encIMG64(image,True))
 
     return encoded_sub_image_dict
 
