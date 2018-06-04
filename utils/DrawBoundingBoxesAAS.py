@@ -106,7 +106,7 @@ def DrawBoxes():
 
             drawn_image = DrawBoxesOnImage(input_image,json_boxes["boxes"])
 
-            json_data = json.dumps({'image': encIMG64(drawn_image,True)})
+            json_data = json.dumps({'image': encIMG64(drawn_image)})
             
             return json_data
 
