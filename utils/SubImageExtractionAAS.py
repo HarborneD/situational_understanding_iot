@@ -121,7 +121,8 @@ def ExtractImages():
 
             sub_image_dict = GetSubImages(input_image,json_boxes["boxes"],target_labels)
 
-            json_data = json.dumps({'sub_images': EncodeSubImageDict(sub_image_dict)})
+            json_data = json.dumps({'sub_images': sub_image_dict})
+            # json_data = json.dumps({'sub_images': EncodeSubImageDict(sub_image_dict)})
             
             return json_data
 
